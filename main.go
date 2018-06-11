@@ -8,18 +8,18 @@ import (
 
 func main() {
 	q := query.NewQuery()
-	q = q.QueryWithBusinessName("Kroger")
+	q = q.QueryWithBusinessName("HABANERO")
 	// q = q.QueryWithAddress("ADDRESS")
 	// q = q.QueryWithCity("CITY")
 	// q = q.QueryWithState("ST")
-	q.Print()
+	//q.Print()
 	results, err := q.Execute()
 	if err != nil {
 		fmt.Printf("%v\n", err)
 		return
 	}
 	for _, result := range *results {
-		fmt.Printf("GOT RESULT!!!")
+		fmt.Println("")
 		result.Print()
 	}
 }
