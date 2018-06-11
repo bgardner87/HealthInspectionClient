@@ -2,22 +2,24 @@ package main
 
 import (
 	"fmt"
+
 	"github.com/CincyGolangMeetup/HealthInspection/Inspection/Query"
 )
 
 func main() {
 	q := query.NewQuery()
-	q = q.QueryWithBusinessName("NAME")
-	q = q.QueryWithAddress("ADDRESS")
-	q = q.QueryWithCity("CITY")
-	q = q.QueryWithState("ST")
+	q = q.QueryWithBusinessName("Kroger")
+	// q = q.QueryWithAddress("ADDRESS")
+	// q = q.QueryWithCity("CITY")
+	// q = q.QueryWithState("ST")
 	q.Print()
 	results, err := q.Execute()
-	if (err != nil) {
-		fmt.Printf("%v\n", err);
-		return;
+	if err != nil {
+		fmt.Printf("%v\n", err)
+		return
 	}
 	for _, result := range *results {
+		fmt.Printf("GOT RESULT!!!")
 		result.Print()
 	}
 }
